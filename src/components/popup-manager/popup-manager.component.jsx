@@ -34,7 +34,7 @@ class PopupManager extends Component {
                     return (
                         <Popup
                             {...popup.config} zIndex={1000 + index}
-                            key={PopupComponent.name}
+                            key={index}
                             onClose={popupUtils.closePopup}
                         >
                             <PopupComponent
