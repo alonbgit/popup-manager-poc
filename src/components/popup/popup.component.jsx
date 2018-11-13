@@ -9,13 +9,15 @@ class Popup extends Component {
         header: PropTypes.string,
         width: PropTypes.number,
         height: PropTypes.number,
-        closeOnBlur: PropTypes.bool,  
+        closeOnBlur: PropTypes.bool,
+        animate: PropTypes.bool,
     }
 
     static defaultProps = {
         width: 400,
         height: 400,
         closeOnBlur: false,
+        animate: true,
     }
 
     render() {

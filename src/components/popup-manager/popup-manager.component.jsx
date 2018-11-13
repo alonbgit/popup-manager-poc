@@ -23,6 +23,35 @@ class PopupManager extends Component {
         }
     }
 
+    renderPopup (popup, index) {
+        const PopupComponent = popup.component;
+        return (
+            <Popup
+                {...popup.config} zIndex={1000 + index}
+                onClose={popupUtils.closePopup}
+            >
+                <PopupComponent
+                    {...popup.props}
+                    onClose={popupUtils.closePopup}
+                />
+            </Popup>
+        )        
+    }
+
+    renderAnimatedPopup (popup, index) {
+        return (
+            <CSSTransition
+                in
+                appear
+                timeout={100}
+                classNames='popup-fade'
+                key={index}
+            >
+                {this.renderPopup(popup, index)}
+            </CSSTransition>
+        )
+    }
+
     render() {
         const { popups } = this.props;
         if (popups.length === 0) {
@@ -43,28 +72,9 @@ class PopupManager extends Component {
                     >
                     </div>
                 </CSSTransition>
-                {popups.map((popup, index) => {
-                    const PopupComponent = popup.component;
-                    return (
-                        <CSSTransition
-                            in
-                            appear
-                            timeout={100}
-                            classNames='popup-fade'
-                            key={index}
-                        >
-                            <Popup
-                                {...popup.config} zIndex={1000 + index}
-                                onClose={popupUtils.closePopup}
-                            >
-                                <PopupComponent
-                                    {...popup.props}
-                                    onClose={popupUtils.closePopup}
-                                />
-                            </Popup>
-                        </CSSTransition>
-                    );
-                })}
+                {popups.map((popup, index) => (
+                    this.renderAnimatedPopup(popup, index)
+                ))}
             </div>
         );
     }
