@@ -2,13 +2,23 @@
 .popup-manager {
     width: 100%;
     height: 100%;
+
+    .popup-fade-appear {
+        opacity: 0;
+
+        &.popup-fade-appear-active {
+            opacity: 1;
+            transition: opacity 100ms linear;
+        }
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.4);
+    }
 }
 
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-}
