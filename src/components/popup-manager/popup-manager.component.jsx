@@ -45,7 +45,7 @@ class PopupManager extends Component {
                 appear
                 timeout={100}
                 classNames='popup-fade'
-                key={index}
+                key={popup.config.id}
             >
                 {this.renderPopup(popup, index)}
             </CSSTransition>

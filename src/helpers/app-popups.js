@@ -26,6 +26,7 @@ export const showUserDetailsPopup = () => {
             width: 300,
             height: 200,
             closeOnBlur: true,
+            id: 'userdetailspopup'
         },
         props: {
             username: 'gdfgfds',

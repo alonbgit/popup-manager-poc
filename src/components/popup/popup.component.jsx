@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 class Popup extends Component {
 
     static propTypes = {
+        id: PropTypes.string.isRequired,
         zIndex: PropTypes.number.isRequired,
         header: PropTypes.string,
         width: PropTypes.number,
@@ -21,7 +22,7 @@ class Popup extends Component {
     }
 
     render() {
-        const { width, height, zIndex, onClose } = this.props;
+        const { width, height, zIndex, onClose, id } = this.props;
         return (
             <div
                 className='popup'
@@ -35,7 +36,7 @@ class Popup extends Component {
                     <div>
                         {this.props.header}
                     </div>
-                    <div className='close-btn' onClick={onClose}>&#215;</div>
+                    <div className='close-btn' onClick={() => onClose(id)}>&#215;</div>
                 </div>
                 <div className='content' style={{ height: `${height - 52}px` }}>
                     {this.props.children}

@@ -13,6 +13,7 @@ class UserDetails extends Component {
             <div className='user-details'> 
                 <div>First Name: {this.props.firstName}</div>
                 <div>Last Name: {this.props.lastName}</div>
+                <button onClick={() => this.props.onClose('fsdfsdf')}>close me</button>
             </div>
         );
     }
