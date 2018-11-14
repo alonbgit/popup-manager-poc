@@ -10,7 +10,7 @@ class Login extends Component {
     }
 
     closeMe = () => {
-        this.props.onClose();
+        this.props.closePopup();
     }
 
     render() {

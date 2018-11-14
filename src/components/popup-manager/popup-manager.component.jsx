@@ -29,11 +29,11 @@ class PopupManager extends Component {
         return (
             <Popup
                 {...popup.config} zIndex={1000 + index}
-                onClose={() => popupUtils.closePopup(id)}
+                closePopup={() => popupUtils.closePopup(id)}
             >
                 <PopupComponent
                     {...popup.props}
-                    onClose={() => popupUtils.closePopup(id)}
+                    closePopup={() => popupUtils.closePopup(id)}
                 />
             </Popup>
         )        

@@ -22,7 +22,7 @@ class Popup extends Component {
     }
 
     render() {
-        const { width, height, zIndex, onClose, id } = this.props;
+        const { width, height, zIndex, closePopup, id } = this.props;
         return (
             <div
                 className='popup'
@@ -36,7 +36,7 @@ class Popup extends Component {
                     <div>
                         {this.props.header}
                     </div>
-                    <div className='close-btn' onClick={() => onClose(id)}>&#215;</div>
+                    <div className='close-btn' onClick={() => closePopup(id)}>&#215;</div>
                 </div>
                 <div className='content' style={{ height: `${height - 52}px` }}>
                     {this.props.children}
