@@ -30,15 +30,9 @@ const actionHandlers = {
     [actionTypes.REMOVE_POPUP]: (state, action) => {
         const popups = [...state.popups];
         const id = action.id;
-        // in case popup id supplied, delete the popup by id.
-        // in case no popup id was supplied, delete the last popup
-        if (id) {
-            const index = popups.findIndex((popup) => popup.config.id === id);
-            if (index !== -1) {
-                popups.splice(index, 1);
-            }
-        } else {
-            popups.splice(popups.length - 1, 1);
+        const index = popups.findIndex((popup) => popup.config.id === id);
+        if (index !== -1) {
+            popups.splice(index, 1);
         }
         return {
             ...state,
