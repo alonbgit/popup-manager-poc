@@ -5,8 +5,9 @@ export const addPopup = (state, payload) => ({
     payload
 });
 
-export const removePopup = (state) => ({
+export const removePopup = (state, payload) => ({
     type: actionTypes.REMOVE_POPUP,
+    payload,
 });
 
 export const changeLoginEmail = (payload) => ({

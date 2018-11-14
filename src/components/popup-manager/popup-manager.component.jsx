@@ -19,20 +19,21 @@ class PopupManager extends Component {
         const { popups } = this.props;
         const currentPopup = popups[popups.length - 1];
         if (currentPopup.config.closeOnBlur) {
-            popupUtils.closePopup();
+            popupUtils.closePopup(currentPopup.config.id);
         }
     }
 
     renderPopup (popup, index) {
         const PopupComponent = popup.component;
+        const { id } = popup.config;
         return (
             <Popup
                 {...popup.config} zIndex={1000 + index}
-                onClose={popupUtils.closePopup}
+                onClose={() => popupUtils.closePopup(id)}
             >
                 <PopupComponent
                     {...popup.props}
-                    onClose={popupUtils.closePopup}
+                    onClose={() => popupUtils.closePopup(id)}
                 />
             </Popup>
         )        
